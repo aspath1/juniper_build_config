@@ -4,8 +4,6 @@ version: "0.0.1"
 readme: "README.md"
 authors:
     - "Calvin Remsburg (@packetferret)"
-dependencies:
-    "juniper.junos": ">=2.3.0,<3.0.0"
 license:
     - "MIT"
 tags:
