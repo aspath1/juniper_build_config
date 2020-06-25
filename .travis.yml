@@ -1,0 +1,15 @@
+---
+sudo: required
+
+env:
+  - distribution: packetferret/ansible-vxlan-evpn-for-campus
+    version: 0.0.1
+
+services:
+  - docker
+
+before_install:
+  - 'sudo docker pull ${distribution}:${version}'
+
+script:
+  - 'docker run -it --rm $(DOCKER_IMG):$(DOCKER_TAG) ansible-galaxy install -p packetferret/juniper_build_config'
