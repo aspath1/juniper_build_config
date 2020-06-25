@@ -36,6 +36,7 @@ Merely import the roles into your playbook to build a specific (or set of specif
 
 Here is an up-to-date list of the roles supported within this collection today:
 
+  - build_directories
   - junos_access
   - junos_apply_groups
   - junos_chassis
