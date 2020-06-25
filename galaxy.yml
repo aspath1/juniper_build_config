@@ -1,6 +1,6 @@
 namespace: "packetferret"
 name: "juniper_build_config"
-version: "0.0.2"
+version: "0.0.3"
 readme: "README.md"
 authors:
     - "Calvin Remsburg (@packetferret)"
@@ -9,4 +9,3 @@ license:
 tags:
     - network
     - collection
-repository: "https://www.github.com/packetferret/juniper_build_config"
