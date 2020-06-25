@@ -1,0 +1,17 @@
+galaxy_info:
+  role_name: assemble_config
+  author: Calvin Remsburg
+  description: assembles all of the individual stanzas into a single file
+  company: Juniper Networks
+
+  license: license (GPLv2, CC-BY, etc)
+
+  min_ansible_version: 1.2
+
+  galaxy_tags:
+    - juniper
+    - network
+    - files
+    - configuration
+
+dependencies: []
