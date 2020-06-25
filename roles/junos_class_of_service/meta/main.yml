@@ -1,7 +1,7 @@
 galaxy_info:
-  role_name: build_directories
+  role_name: junos_class_of_service
   author: Calvin Remsburg
-  description: builds directories to host the configuration files throughout the build
+  description: builds configuration file for the stanza class_of_service
   company: Juniper Networks
 
   license: license (GPLv2, CC-BY, etc)
