@@ -23,7 +23,7 @@ We will be using a few variables, feel free to stage these variables in `host_va
 
 | Variable | Required | Default | Choices | Comments |
 |---|---|---|---|---|
-| temporary_directory | yes | "/tmp/ansible/" | any path you like | root path to hold all configuration elements |
+| temporary_directory | yes | "/tmp/ansible/" | any path you like | root path to hold all items |
 | build_directory | yes | "{{ temporary_directory }}/{{ inventory_hostname }}" | any path you like | a device-specific directory to hold configuration elements as they're built |
 | build_directory_temp | yes | "{{ build_directory }}/tmp" | any path you like | path to hold stanzas as they're being generated |
 | build_directory_complete | yes | "{{ build_directory }}/complete" | any path you like | path for the completed configuration to be stored |
@@ -31,7 +31,7 @@ We will be using a few variables, feel free to stage these variables in `host_va
 
 ## backup directories and files
 
- directories to hold backup files as they're retreived
+directories to hold backup files as they're retreived
 
 | Variable | Required | Default | Choices | Comments |
 |---|---|---|---|---|

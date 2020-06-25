@@ -1,4 +1,4 @@
-junos_access
+snmp
 =========
 
 This role will build the configuration for any device running Junos.
@@ -26,7 +26,7 @@ hash_behaviour=merge
 
 This will create one dictionary, called `configuration`, that will host all configuration elements. Without declaring `hash_behaviour=merge`, Ansible will overwrite the dictionary after reading each yaml file holding a `configuration` item.
 
-With all of that out of the way, let's talk about the variables available for the `junos_access` template.
+With all of that out of the way, let's talk about the variables available for the `snmp` template.
 
 ## configuration directories and files
 
@@ -34,10 +34,10 @@ With all of that out of the way, let's talk about the variables available for th
 
 | Variable | Required | Default | Choices | Comments |
 |---|---|---|---|---|
-| configuration.access | no | n/a | n/a | dictionary that hosts all access-related configuration elements |
-| configuration.access.address_assignment | no | n/a | n/a | dictionary that hosts all DHCP related configuration elements |
-| configuration.access.address_assignment.pool | no | n/a | n/a | dictionary that hosts all DHCP pool configuration elements |
-| configuration.access.address_assignment.pool | no | n/a | n/a | dictionary that hosts all DHCP pool configuration elements |
+| configuration.snmp | no | n/a | n/a | dictionary that hosts all access-related items |
+| configuration.snmp.address_assignment | no | n/a | n/a | dictionary that hosts all DHCP related items |
+| configuration.snmp.address_assignment.pool | no | n/a | n/a | dictionary that hosts all DHCP pool items |
+| configuration.snmp.address_assignment.pool | no | n/a | n/a | dictionary that hosts all DHCP pool items |
 
 Dependencies
 ------------
@@ -47,11 +47,10 @@ There are no dependencies for this role
 Example Playbook
 ----------------
 
-Make sure to place this role in front of all configuration building roles that begin with `junos_`, they are counting on these directories to be present:
 
     - hosts: all
       roles:
-         - junos_access
+         - snmp
 
 License
 -------

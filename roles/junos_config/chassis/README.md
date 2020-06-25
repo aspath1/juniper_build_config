@@ -1,4 +1,4 @@
-junos_access
+chassis
 =========
 
 This role will build the configuration for any device running Junos.
@@ -26,18 +26,20 @@ hash_behaviour=merge
 
 This will create one dictionary, called `configuration`, that will host all configuration elements. Without declaring `hash_behaviour=merge`, Ansible will overwrite the dictionary after reading each yaml file holding a `configuration` item.
 
-With all of that out of the way, let's talk about the variables available for the `junos_access` template.
+With all of that out of the way, let's talk about the variables available for the `chassis` template.
 
-## configuration directories and files
+## chassis
 
- directories to hold configuration files as they're generated
+builds the chassis configuration file
 
 | Variable | Required | Default | Choices | Comments |
 |---|---|---|---|---|
-| configuration.access | no | n/a | n/a | dictionary that hosts all access-related configuration elements |
-| configuration.access.address_assignment | no | n/a | n/a | dictionary that hosts all DHCP related configuration elements |
-| configuration.access.address_assignment.pool | no | n/a | n/a | dictionary that hosts all DHCP pool configuration elements |
-| configuration.access.address_assignment.pool | no | n/a | n/a | dictionary that hosts all DHCP pool configuration elements |
+| configuration.chassis | no | n/a | n/a | dictionary that hosts all chassis-related items |
+| configuration.chassis.redundancy | no | n/a | n/a | dictionary to enable graceful switchover |
+| configuration.chassis.aggregated_devices | no | n/a | n/a | dictionary to enable interface aggregation |
+| configuration.chassis.fpc | no | n/a | n/a | dictionary to declare FPC configurations |
+| configuration.chassis.disk_partition | no | n/a | n/a | dictionary to adjust disk partitions |
+| configuration.chassis.alarm | no | n/a | n/a | dictionary to affect alarm configuration |
 
 Dependencies
 ------------
@@ -47,11 +49,10 @@ There are no dependencies for this role
 Example Playbook
 ----------------
 
-Make sure to place this role in front of all configuration building roles that begin with `junos_`, they are counting on these directories to be present:
 
     - hosts: all
       roles:
-         - junos_access
+         - chassis
 
 License
 -------

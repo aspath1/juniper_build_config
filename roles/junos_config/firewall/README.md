@@ -1,4 +1,4 @@
-junos_access
+firewall
 =========
 
 This role will build the configuration for any device running Junos.
@@ -26,18 +26,18 @@ hash_behaviour=merge
 
 This will create one dictionary, called `configuration`, that will host all configuration elements. Without declaring `hash_behaviour=merge`, Ansible will overwrite the dictionary after reading each yaml file holding a `configuration` item.
 
-With all of that out of the way, let's talk about the variables available for the `junos_access` template.
+With all of that out of the way, let's talk about the variables available for the `firewall` template.
 
-## configuration directories and files
+## firewall configuration
 
- directories to hold configuration files as they're generated
+builds the firewall configuration file
 
 | Variable | Required | Default | Choices | Comments |
 |---|---|---|---|---|
-| configuration.access | no | n/a | n/a | dictionary that hosts all access-related configuration elements |
-| configuration.access.address_assignment | no | n/a | n/a | dictionary that hosts all DHCP related configuration elements |
-| configuration.access.address_assignment.pool | no | n/a | n/a | dictionary that hosts all DHCP pool configuration elements |
-| configuration.access.address_assignment.pool | no | n/a | n/a | dictionary that hosts all DHCP pool configuration elements |
+| configuration.firewall | no | n/a | n/a | dictionary that hosts all firewall-related items |
+| configuration.firewall.family.inet | no | n/a | n/a | ipv4 policies |
+| configuration.firewall.family.ethernet_switching | no | n/a | n/a | ethernet policies |
+| configuration.firewall.family.policer | no | n/a | n/a | policer policies |
 
 Dependencies
 ------------
@@ -47,11 +47,10 @@ There are no dependencies for this role
 Example Playbook
 ----------------
 
-Make sure to place this role in front of all configuration building roles that begin with `junos_`, they are counting on these directories to be present:
 
     - hosts: all
       roles:
-         - junos_access
+         - firewall
 
 License
 -------

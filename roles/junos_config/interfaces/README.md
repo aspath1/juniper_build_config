@@ -1,4 +1,4 @@
-junos_access
+interfaces
 =========
 
 This role will build the configuration for any device running Junos.
@@ -26,18 +26,18 @@ hash_behaviour=merge
 
 This will create one dictionary, called `configuration`, that will host all configuration elements. Without declaring `hash_behaviour=merge`, Ansible will overwrite the dictionary after reading each yaml file holding a `configuration` item.
 
-With all of that out of the way, let's talk about the variables available for the `junos_access` template.
+With all of that out of the way, let's talk about the variables available for the `interfaces` template.
 
-## configuration directories and files
+## interfaces configuration
 
- directories to hold configuration files as they're generated
+builds the interface configuration file
 
 | Variable | Required | Default | Choices | Comments |
 |---|---|---|---|---|
-| configuration.access | no | n/a | n/a | dictionary that hosts all access-related configuration elements |
-| configuration.access.address_assignment | no | n/a | n/a | dictionary that hosts all DHCP related configuration elements |
-| configuration.access.address_assignment.pool | no | n/a | n/a | dictionary that hosts all DHCP pool configuration elements |
-| configuration.access.address_assignment.pool | no | n/a | n/a | dictionary that hosts all DHCP pool configuration elements |
+| configuration.interfaces | no | n/a | n/a | dictionary that hosts all access-related items |
+| configuration.interfaces.apply_groups | no | n/a | n/a | dictionary that hosts all apply groups related items |
+| configuration.interfaces.interfaces | no | n/a | n/a | list that hosts all interfaces |
+| configuration.interfaces.interfaces.name | no | n/a | n/a | each interface with its respective configurations |
 
 Dependencies
 ------------
@@ -47,11 +47,10 @@ There are no dependencies for this role
 Example Playbook
 ----------------
 
-Make sure to place this role in front of all configuration building roles that begin with `junos_`, they are counting on these directories to be present:
 
     - hosts: all
       roles:
-         - junos_access
+         - interfaces
 
 License
 -------
