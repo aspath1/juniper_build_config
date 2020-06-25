@@ -36,29 +36,29 @@ Merely import the roles into your playbook to build a specific (or set of specif
 
 Here is an up-to-date list of the roles supported within this collection today:
 
-  - build_directories
-  - junos_access
-  - junos_apply_groups
-  - junos_chassis
-  - junos_event_options
-  - junos_class_of_service
-  - junos_firewall
-  - junos_forwarding_options
-  - junos_groups
-  - junos_interfaces
-  - junos_poe
-  - junos_policy_options
-  - junos_protocols
-  - junos_routing_instances
-  - junos_routing_options
-  - junos_security
-  - junos_services
-  - junos_snmp
-  - junos_switch_options
-  - junos_system
-  - junos_version
-  - junos_virtual_chassis
-  - junos_vlans
+  - junos_config/build_directories
+  - junos_config/access
+  - junos_config/apply_groups
+  - junos_config/chassis
+  - junos_config/event_options
+  - junos_config/class_of_service
+  - junos_config/firewall
+  - junos_config/forwarding_options
+  - junos_config/groups
+  - junos_config/interfaces
+  - junos_config/poe
+  - junos_config/policy_options
+  - junos_config/protocols
+  - junos_config/routing_instances
+  - junos_config/routing_options
+  - junos_config/security
+  - junos_config/services
+  - junos_config/snmp
+  - junos_config/switch_options
+  - junos_config/system
+  - junos_config/version
+  - junos_config/virtual_chassis
+  - junos_config/vlans
 
 ## Development
 
