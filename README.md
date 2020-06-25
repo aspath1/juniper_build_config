@@ -22,7 +22,7 @@ You can also include it in a `requirements.yml` file and install it via `ansible
 
 ```yaml
 collections:
-- name: juniper_build_config
+- name: packetferret/juniper_build_config
 ```
 
 ## How to use this project
@@ -34,7 +34,7 @@ Merely import the roles into your playbook to build a specific (or set of specif
 
 example:
 
-```yml
+```yaml
 ### ---------------------------------------------------------------------------
 ### BUILD CONFIGURATION IN PIECES AND ASSEMBLE INTO SINGLE CONFIG FILE
 ### ---------------------------------------------------------------------------
@@ -43,29 +43,30 @@ example:
   any_errors_fatal: "{{ any_errors_fatal | default(true) }}"
   gather_facts: False
   roles:
-    - { role: build_config_stanza/version }
-    - { role: build_config_stanza/apply_groups }
-    - { role: build_config_stanza/groups }
-    - { role: build_config_stanza/system }
-    - { role: build_config_stanza/event_options, when: "'switch' in device.role" }
-    - { role: build_config_stanza/chassis }
-    - { role: build_config_stanza/services, when: "'firewall' in device.role" }
-    - { role: build_config_stanza/security, when: "'firewall' in device.role" }
-    - { role: build_config_stanza/interfaces }
-    - { role: build_config_stanza/snmp }
-    - { role: build_config_stanza/forwarding_options }
-    - { role: build_config_stanza/routing_instances }
-    - { role: build_config_stanza/routing_options }
-    - { role: build_config_stanza/protocols }
-    - { role: build_config_stanza/policy_options }
-    - { role: build_config_stanza/class_of_service }
-    - { role: build_config_stanza/firewall }
-    - { role: build_config_stanza/switch_options }
-    - { role: build_config_stanza/poe }
-    - { role: build_config_stanza/virtual_chassis, when: "'virtual_chassis' in device.role" }
-    - { role: build_config_stanza/access }
-    - { role: build_config_stanza/vlans }
-    - { role: assemble_config }
+    - { role: packetferret/juniper_build_config/build_directories }
+    - { role: packetferret/juniper_build_config/version }
+    - { role: packetferret/juniper_build_config/apply_groups }
+    - { role: packetferret/juniper_build_config/groups }
+    - { role: packetferret/juniper_build_config/system }
+    - { role: packetferret/juniper_build_config/event_options, when: "'switch' in device.role" }
+    - { role: packetferret/juniper_build_config/chassis }
+    - { role: packetferret/juniper_build_config/services, when: "'firewall' in device.role" }
+    - { role: packetferret/juniper_build_config/security, when: "'firewall' in device.role" }
+    - { role: packetferret/juniper_build_config/interfaces }
+    - { role: packetferret/juniper_build_config/snmp }
+    - { role: packetferret/juniper_build_config/forwarding_options }
+    - { role: packetferret/juniper_build_config/routing_instances }
+    - { role: packetferret/juniper_build_config/routing_options }
+    - { role: packetferret/juniper_build_config/protocols }
+    - { role: packetferret/juniper_build_config/policy_options }
+    - { role: packetferret/juniper_build_config/class_of_service }
+    - { role: packetferret/juniper_build_config/firewall }
+    - { role: packetferret/juniper_build_config/switch_options }
+    - { role: packetferret/juniper_build_config/poe }
+    - { role: packetferret/juniper_build_config/virtual_chassis, when: "'virtual_chassis' in device.role" }
+    - { role: packetferret/juniper_build_config/access }
+    - { role: packetferret/juniper_build_config/vlans }
+    - { role: packetferret/juniper_build_config/assemble_config }
 ```
 
 ### Roles used within this collection
