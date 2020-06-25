@@ -1,15 +1,29 @@
 ---
-sudo: required
+language: python
+python: "2.7"
 
-env:
-  - distribution: packetferret/ansible-vxlan-evpn-for-campus
-    version: 0.0.1
+# Use the new container infrastructure
+sudo: false
 
-services:
-  - docker
+# Install ansible
+addons:
+  apt:
+    packages:
+    - python-pip
 
-before_install:
-  - 'sudo docker pull ${distribution}:${version}'
+install:
+  # Install ansible
+  - pip install ansible
+
+  # Check ansible version
+  - ansible --version
+
+  # Create ansible.cfg with correct roles_path
+  - printf '[defaults]\nroles_path=../' >ansible.cfg
 
 script:
-  - 'docker run -it --rm $(DOCKER_IMG):$(DOCKER_TAG) ansible-galaxy install -p packetferret/juniper_build_config'
+  # Basic role syntax check
+  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
