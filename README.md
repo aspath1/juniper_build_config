@@ -15,7 +15,7 @@ This collection is a based on the idea of using Jinja2 templating engine to buil
 ### Installing the Collection from Ansible Galaxy
 
 Before using the `juniper_build_config` collection, you need to install the collection with the `ansible-galaxy` CLI:
-
+ansible-galaxy collection publish
     ansible-galaxy collection install juniper_build_config
 
 You can also include it in a `requirements.yml` file and install it via `ansible-galaxy collection install -r requirements.yml` using the format:
